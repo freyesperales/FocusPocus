@@ -1,0 +1,213 @@
+/* FocusPocus — página de bloqueo */
+
+body {
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+.skip {
+  position: absolute;
+  left: 16px; top: -60px;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-radius: var(--r-sm);
+  z-index: 10;
+}
+.skip:focus { top: 12px; }
+
+.top {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.top-stats { font-family: var(--mono); font-size: 12.5px; color: var(--ink-soft); }
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+/* ---------- Portada ---------- */
+
+.hero { padding: 56px 0 40px; max-width: 760px; }
+.hero .kicker { display: inline-flex; gap: 8px; align-items: center; }
+.hero .kicker::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.hero h1 {
+  font-size: clamp(38px, 6vw, 64px);
+  margin: 14px 0 14px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.lede { font-size: 18px; color: var(--ink-soft); max-width: 56ch; }
+.lede strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Sugerencias ---------- */
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  border-top: 1.5px solid var(--ink);
+  padding-top: 14px;
+  margin-bottom: 18px;
+}
+.section-head h2 { font-size: 28px; }
+.section-note { color: var(--ink-soft); font-size: 14px; }
+.discover:focus { outline: none; }
+
+.cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  counter-reset: card;
+}
+
+.card {
+  counter-increment: card;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 20px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  min-height: 250px;
+}
+.card::before {
+  content: counter(card, decimal-leading-zero);
+  position: absolute;
+  top: 16px; right: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+.card-cat {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-right: 32px;
+}
+.card-emoji { font-size: 34px; line-height: 1; }
+.card h3 { font-size: 23px; }
+.card-desc { color: var(--ink-soft); flex: 1; }
+.card-host { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); overflow-wrap: anywhere; }
+.card-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.card-actions .btn-primary { flex: 1; }
+
+/* ---------- Tareas y sueños ---------- */
+
+.mine {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+.panel {
+  padding: 20px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--r-lg);
+}
+.panel .notes-title::before { content: "☐ "; color: var(--accent); font-family: var(--mono); font-size: 0.8em; }
+.panel-dreams .notes-title::before { content: "✦ "; color: var(--gold); }
+
+/* ---------- Cita ---------- */
+
+.quote {
+  margin: 48px auto 8px;
+  max-width: 720px;
+  text-align: center;
+}
+.quote blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.3;
+}
+.quote blockquote::before { content: "«"; color: var(--gold); }
+.quote blockquote::after { content: "»"; color: var(--gold); }
+.quote figcaption { margin-top: 10px; color: var(--ink-soft); font-family: var(--mono); font-size: 13px; }
+.quote figcaption::before { content: "— "; }
+
+/* ---------- Desbloqueo ---------- */
+
+.unlock {
+  margin: 48px auto 0;
+  max-width: 720px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.unlock h2 { font-size: 20px; margin-bottom: 6px; }
+.unlock > p { color: var(--ink-soft); }
+.unlock details { margin-top: 8px; }
+.unlock summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 8px 0;
+  width: fit-content;
+}
+.unlock-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+.method {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+.method h3 { font-size: 18px; }
+.method p { color: var(--ink-soft); font-size: 14px; }
+.timer {
+  font-family: var(--mono);
+  font-size: 30px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+.bar {
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.bar > span { display: block; height: 100%; width: 0; background: var(--gold); transition: width 0.25s linear; }
+.counter { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+.msg { font-size: 14px; color: var(--danger); min-height: 1.2em; }
+.locked-note {
+  padding: 16px 18px;
+  background: var(--gold-soft);
+  border-radius: var(--r);
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; }
+  .card { min-height: 0; }
+  .mine, .unlock-body { grid-template-columns: 1fr; }
+  .hero { padding-top: 36px; }
+}

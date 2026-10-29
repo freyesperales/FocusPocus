@@ -1,70 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Focus Pocus</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    h1 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    form {
-      margin-bottom: 10px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 5px;
-    }
-    .site-name {
-      flex-grow: 1;
-      margin-right: 10px;
-    }
-    .delete-button {
-      padding: 5px 10px;
-      background-color: #ff5252;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .delete-button:hover {
-      background-color: #ff0000;
-    }
-    #toggle-block-button {
-      padding: 10px;
-      background-color: #4caf50;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    #toggle-block-button:hover {
-      background-color: #45a049;
-    }
-  </style>
-  <script src="popup.js"></script>
+  <title>FocusPocus</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/popup.css">
 </head>
 <body>
-  <h1>Focus Pocus</h1>
+  <header class="pop-head">
+    <span class="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2a2280"/><circle cx="29" cy="35" r="15" fill="none" stroke="#f2b155" stroke-width="6"/><circle cx="29" cy="35" r="4.5" fill="#f5f0e6"/><path d="M48 8l2.6 7.4L58 18l-7.4 2.6L48 28l-2.6-7.4L38 18l7.4-2.6z" fill="#f5f0e6"/></svg>
+      FocusPocus
+    </span>
+    <span class="pill" id="pill">…</span>
+  </header>
 
-  <h2>Bloquear sitios web</h2>
-  <form id="blocked-sites-form">
-    <input id="site-input" type="text" placeholder="Ingrese un sitio web">
-    <button type="submit">Bloquear</button>
-  </form>
+  <main>
+    <section class="status" aria-label="Estado del bloqueo">
+      <p class="status-main" id="status-main">Cargando…</p>
+      <p class="status-sub" id="status-sub"></p>
+    </section>
 
-  <h2>Sitios web bloqueados</h2>
-  <ul id="site-list"></ul>
+    <section class="site" aria-label="Sitio actual">
+      <button type="button" class="btn btn-ghost site-btn" id="block-site" disabled>Este sitio no se puede bloquear</button>
+      <p class="site-msg" id="site-msg" role="status"></p>
+    </section>
 
-  <button id="toggle-block-button">Activar bloqueo</button>
+    <button type="button" class="btn btn-primary surprise" id="surprise">
+      <span aria-hidden="true">🎲</span> Sorpréndeme
+    </button>
+    <p class="surprise-hint">Abre un sitio para aprender o crear, elegido al azar entre más de 400.</p>
+
+    <section class="streak" aria-label="Tu racha">
+      <div>
+        <p class="streak-num" id="streak-num">0</p>
+        <p class="streak-label" id="streak-label">días seguidos explorando</p>
+      </div>
+      <div>
+        <p class="streak-num" id="hits-num">0</p>
+        <p class="streak-label" id="hits-label">pausas hoy</p>
+      </div>
+    </section>
+
+    <div id="tasks" class="pop-notes"></div>
+  </main>
+
+  <footer class="pop-foot">
+    <button type="button" class="link-btn" id="open-options">Opciones</button>
+    <span>Todo queda en tu navegador</span>
+  </footer>
+
+  <script src="data/sites.js"></script>
+  <script type="module" src="popup.js"></script>
 </body>
 </html>

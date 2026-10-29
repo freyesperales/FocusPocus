@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opciones · FocusPocus</title>
+  <link rel="icon" href="icons/icon32.png">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/options.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="side">
+      <span class="brand">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2a2280"/><circle cx="29" cy="35" r="15" fill="none" stroke="#f2b155" stroke-width="6"/><circle cx="29" cy="35" r="4.5" fill="#f5f0e6"/><path d="M48 8l2.6 7.4L58 18l-7.4 2.6L48 28l-2.6-7.4L38 18l7.4-2.6z" fill="#f5f0e6"/></svg>
+        FocusPocus
+      </span>
+      <nav aria-label="Secciones">
+        <ol class="toc">
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#horario">Horario</a></li>
+          <li><a href="#lista">Tu lista</a></li>
+          <li><a href="#desbloqueo">Desbloqueo</a></li>
+          <li><a href="#notas">Tareas y sueños</a></li>
+          <li><a href="#datos">Tus datos</a></li>
+        </ol>
+      </nav>
+      <p class="side-note">Todo se guarda en este navegador. FocusPocus no usa analítica ni se conecta a ningún servidor.</p>
+    </aside>
+
+    <main>
+      <header class="page-head">
+        <p class="kicker">Opciones</p>
+        <h1>Decide qué queda fuera y cuándo</h1>
+        <p class="lede">Cuando quitas algo mientras el bloqueo está activo, FocusPocus te pide que escribas para qué. Ese pequeño esfuerzo es la idea.</p>
+      </header>
+
+      <div class="welcome" id="welcome" hidden>
+        <h2>Ya está funcionando</h2>
+        <p>La categoría de adultos queda bloqueada a toda hora. Redes y ocio se bloquean de lunes a viernes de 09:00 a 18:00. Ajusta lo que quieras aquí abajo.</p>
+      </div>
+
+      <section id="categorias" aria-labelledby="h-cat">
+        <h2 id="h-cat">Categorías</h2>
+        <div class="cats" id="cats"></div>
+      </section>
+
+      <section id="horario" aria-labelledby="h-hor">
+        <h2 id="h-hor">Horario</h2>
+        <p class="hint">Se aplica a «Redes y ocio» y a «Tu lista». Adultos no depende del horario.</p>
+        <fieldset class="mode">
+          <legend class="sr-only">Cuándo bloquear</legend>
+          <label class="radio-card"><input type="radio" name="mode" value="siempre"> <span><strong>Siempre</strong><small>A toda hora, todos los días.</small></span></label>
+          <label class="radio-card"><input type="radio" name="mode" value="horario"> <span><strong>En horario</strong><small>Solo los días y horas que elijas.</small></span></label>
+        </fieldset>
+        <div class="schedule" id="schedule">
+          <fieldset class="days">
+            <legend>Días</legend>
+            <div class="days-row" id="days"></div>
+          </fieldset>
+          <div class="times">
+            <label>Desde <input type="time" id="start" required></label>
+            <label>Hasta <input type="time" id="end" required></label>
+          </div>
+          <p class="hint" id="schedule-hint"></p>
+        </div>
+      </section>
+
+      <section id="lista" aria-labelledby="h-lista">
+        <h2 id="h-lista">Tu lista</h2>
+        <p class="hint">Un dominio (<code>ejemplo.com</code>, incluye sus subdominios) o una sección (<code>ejemplo.com/videos</code>).</p>
+        <form class="add-site" id="add-site">
+          <label for="site-input" class="sr-only">Sitio para bloquear</label>
+          <input type="text" id="site-input" placeholder="ejemplo.com" autocomplete="off" spellcheck="false">
+          <button type="submit" class="btn btn-primary">Bloquear</button>
+        </form>
+        <p class="msg" id="site-msg" role="status"></p>
+        <ul class="sites" id="sites"></ul>
+        <div class="perm" id="perm" hidden>
+          <p id="perm-text"></p>
+          <button type="button" class="btn btn-quiet" id="perm-btn">Dar permiso</button>
+        </div>
+      </section>
+
+      <section id="desbloqueo" aria-labelledby="h-desb">
+        <h2 id="h-desb">Desbloqueo</h2>
+        <p class="hint">Desde la página de bloqueo puedes abrir un sitio de redes o de tu lista por un rato: esperando o escribiendo para qué. Nunca con un solo clic.</p>
+        <div class="nums">
+          <label>Minutos de espera <input type="number" id="wait" min="1" max="30" step="1"></label>
+          <label>Minutos de acceso <input type="number" id="duration" min="5" max="60" step="1"></label>
+        </div>
+      </section>
+
+      <section id="notas" aria-labelledby="h-notas">
+        <h2 id="h-notas">Tareas y sueños</h2>
+        <p class="hint">Aparecen en cada página de bloqueo, para que recuerdes a qué venías.</p>
+        <div class="notes-grid">
+          <div id="tasks"></div>
+          <div id="dreams"></div>
+        </div>
+      </section>
+
+      <section id="datos" aria-labelledby="h-datos">
+        <h2 id="h-datos">Tus datos</h2>
+        <p class="hint">Exporta tu configuración, tareas y sueños en un archivo JSON, o impórtala en otro navegador.</p>
+        <div class="data-actions">
+          <button type="button" class="btn btn-ghost" id="export">Exportar JSON</button>
+          <label class="btn btn-ghost file-btn">Importar JSON <input type="file" id="import" accept="application/json,.json" class="sr-only"></label>
+        </div>
+        <p class="msg" id="data-msg" role="status"></p>
+        <h3 class="sub-h">Motivos recientes</h3>
+        <ul class="reasons" id="reasons"></ul>
+      </section>
+
+      <footer class="foot">
+        FocusPocus 2.0 · <a href="https://farp.dev" rel="noreferrer">farp.dev</a> · <a href="https://laura.lat" rel="noreferrer">laura.lat</a>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="gate" aria-labelledby="gate-title" aria-describedby="gate-desc">
+    <form method="dialog" id="gate-form">
+      <h2 id="gate-title">Estás aflojando el bloqueo</h2>
+      <p id="gate-desc">Este cambio desbloquea algo que ahora mismo está bloqueado. Escribe para qué lo haces, con al menos 40 caracteres.</p>
+      <label for="gate-reason" class="sr-only">Motivo</label>
+      <textarea id="gate-reason" rows="3" maxlength="500"></textarea>
+      <p class="counter" id="gate-count">0 / 40</p>
+      <p class="msg" id="gate-msg" role="status"></p>
+      <div class="gate-actions">
+        <button type="submit" value="cancel" class="btn btn-ghost" id="gate-cancel">Mejor no</button>
+        <button type="submit" value="ok" class="btn btn-primary" id="gate-ok" disabled>Aplicar el cambio</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+/* FocusPocus — popup */
+
+body {
+  width: 360px;
+  max-height: 600px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.pop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px 12px;
+  border-bottom: 1.5px solid var(--ink);
+}
+
+.pill {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-strong);
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.pill.is-on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+main { padding: 14px 16px 6px; display: grid; gap: 12px; }
+
+.status-main { font-family: var(--serif); font-size: 18px; font-weight: 600; line-height: 1.25; }
+.status-sub { color: var(--ink-soft); font-size: 13px; margin-top: 2px; }
+
+.site-btn { width: 100%; justify-content: flex-start; text-align: left; border-radius: var(--r); }
+.site-btn .host { font-family: var(--mono); font-size: 12.5px; overflow-wrap: anywhere; }
+.site-msg { font-size: 12.5px; color: var(--ink-soft); min-height: 0; }
+.site-msg:empty { display: none; }
+
+.surprise { width: 100%; min-height: 48px; font-size: 16px; border-radius: var(--r); }
+.surprise-hint { font-size: 12px; color: var(--ink-soft); margin-top: -6px; }
+
+.streak {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.streak > div {
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+.streak-num { font-family: var(--serif); font-size: 28px; font-weight: 600; line-height: 1; color: var(--gold); }
+.streak-label { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+.pop-notes .notes-title { font-size: 16px; margin-bottom: 8px; }
+.pop-notes .notes-list { max-height: 190px; overflow-y: auto; }
+.pop-notes .note { padding: 4px 4px 4px 10px; }
+
+.pop-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px 12px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  margin-top: 8px;
+}
+.link-btn {
+  background: none;
+  border: 0;
+  padding: 4px 0;
+  font: 600 13px var(--sans);
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}

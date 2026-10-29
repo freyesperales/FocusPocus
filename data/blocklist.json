@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": { "extensionPath": "/blocked.html" }
+    },
+    "condition": {
+      "resourceTypes": ["main_frame"],
+      "requestDomains": [
+        "pornhub.com",
+        "xvideos.com",
+        "xnxx.com",
+        "xhamster.com",
+        "redtube.com",
+        "youporn.com",
+        "spankbang.com",
+        "onlyfans.com",
+        "chaturbate.com",
+        "stripchat.com",
+        "brazzers.com",
+        "4chan.org",
+        "4channel.org",
+        "8kun.top"
+      ]
+    }
+  }
+]

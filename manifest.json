@@ -1,21 +1,104 @@
 {
-  "manifest_version": 2,
-  "name": "Focus Pocus",
-  "description": "Esta extensión bloqueará ciertos sitios web durante el horario laboral y te permitirá ordenar tus tareas para mantener el foco",
-  "version": "1.0",
+  "manifest_version": 3,
+  "name": "FocusPocus",
+  "version": "2.0.0",
+  "description": "Bloquea lo que te distrae y, en su lugar, te propone sitios para aprender, crear y usar la cabeza.",
+  "minimum_chrome_version": "116",
   "permissions": [
     "storage",
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>"
+    "declarativeNetRequest",
+    "alarms",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.pornhub.com/*",
+    "*://*.xvideos.com/*",
+    "*://*.xnxx.com/*",
+    "*://*.xhamster.com/*",
+    "*://*.redtube.com/*",
+    "*://*.youporn.com/*",
+    "*://*.spankbang.com/*",
+    "*://*.onlyfans.com/*",
+    "*://*.chaturbate.com/*",
+    "*://*.stripchat.com/*",
+    "*://*.brazzers.com/*",
+    "*://*.4chan.org/*",
+    "*://*.4channel.org/*",
+    "*://*.8kun.top/*",
+    "*://*.eporner.com/*",
+    "*://*.txxx.com/*",
+    "*://*.hqporner.com/*",
+    "*://*.tnaflix.com/*",
+    "*://*.motherless.com/*",
+    "*://*.beeg.com/*",
+    "*://*.porn.com/*",
+    "*://*.youjizz.com/*",
+    "*://*.tube8.com/*",
+    "*://*.fansly.com/*",
+    "*://*.livejasmin.com/*",
+    "*://*.bongacams.com/*",
+    "*://*.cam4.com/*",
+    "*://*.camsoda.com/*",
+    "*://*.myfreecams.com/*",
+    "*://*.nhentai.net/*",
+    "*://*.e-hentai.org/*",
+    "*://*.xxx/*",
+    "*://*.porn/*",
+    "*://*.adult/*",
+    "*://*.sex/*",
+    "*://*.tiktok.com/*",
+    "*://*.instagram.com/*",
+    "*://*.youtube.com/*",
+    "*://*.facebook.com/*",
+    "*://*.x.com/*",
+    "*://*.twitter.com/*",
+    "*://*.threads.com/*",
+    "*://*.threads.net/*",
+    "*://*.reddit.com/*",
+    "*://*.snapchat.com/*",
+    "*://*.9gag.com/*",
+    "*://*.twitch.tv/*",
+    "*://*.kick.com/*",
+    "*://*.pinterest.com/*",
+    "*://*.netflix.com/*",
+    "*://*.primevideo.com/*",
+    "*://*.disneyplus.com/*"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
   ],
   "background": {
-    "scripts": ["background.js"],
-    "persistent": true
+    "service_worker": "background.js",
+    "type": "module"
   },
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "FocusPocus",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
-  "web_accessible_resources": ["blocked.html"]
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "blocked.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
 }
