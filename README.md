@@ -4,6 +4,16 @@ Extensión para Chrome y Edge que bloquea lo que te distrae y, en su lugar, te p
 
 La primera versión (2024) bloqueaba una lista de sitios en horario laboral y, en la página de bloqueo, mostraba tus tareas. La versión 2 conserva esa idea y la lleva más lejos: la página de bloqueo ya no es un muro, sino una puerta hacia algo mejor.
 
+## Capturas
+
+| Página de bloqueo | Modo oscuro |
+|---|---|
+| ![Página de bloqueo de FocusPocus con tres sitios sugeridos, tareas y sueños](docs/capturas/bloqueo-claro.png) | ![Página de bloqueo en modo oscuro](docs/capturas/bloqueo-oscuro.png) |
+
+| Popup | Popup oscuro | Opciones |
+|---|---|---|
+| ![Popup con el estado del bloqueo, Sorpréndeme y tareas](docs/capturas/popup.png) | ![Popup en modo oscuro](docs/capturas/popup-oscuro.png) | ![Página de opciones: categorías, horario y lista propia](docs/capturas/opciones.png) |
+
 ## Qué hace
 
 **Bloqueo por categorías**

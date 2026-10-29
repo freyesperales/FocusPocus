@@ -1,4 +1,0 @@
-👋 Hi, I'm Francisco Reyes, an individual with a relentless curiosity and a deep fascination with the Internet, Software, CyberSecurity, and the Digital World at large.
-👀 I'm drawn to the fields of CyberSecurity, Digital Intelligence, Artificial Intelligence, and Software Development, always seeking new knowledge and advancements.
-📖 With a penchant for fostering growth, I serve as a mentor for new businesses and entrepreneurs, helping them navigate the complex paths of their journeys.
-🌱 I am perpetually in a state of learning, striving to broaden my horizons and deepen my understanding every day.
